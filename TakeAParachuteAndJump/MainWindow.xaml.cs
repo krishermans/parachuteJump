@@ -22,11 +22,11 @@ namespace TakeAParachuteAndJump
             _game = new Game(landscapeCanvas.ActualWidth, landscapeCanvas.ActualHeight);
             _game.Setup();
 
-            _planeModel = new Plane(60, 200, 0.001);
+            _planeModel = new Plane(60, 200, 1);
             _planeUI = new PlaneUI(_planeModel, landscapeCanvas);
 
             _animationTimer = new DispatcherTimer();
-            _animationTimer.Interval = TimeSpan.FromSeconds(1 / 30); // 3O fps
+            _animationTimer.Interval = TimeSpan.FromMilliseconds(40); // 25 fps
             _animationTimer.Tick += (s, e) => { _planeUI.Update(); };
 
         }

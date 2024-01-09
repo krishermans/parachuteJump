@@ -15,12 +15,14 @@ namespace TakeAParachuteAndJump.Domain
         private double _speedX; // in horizontal direction
         private double _width;
         private double _height;
+        private double _canvasWidth; // is width of the canvas
 
-        public Plane(double positionX, double positionY, double speedX)
+        public Plane(double positionX, double positionY, double speedX, double canvasWidth)
         {
             _positionX = positionX;
             _positionY = positionY;
             _speedX = speedX;
+            _canvasWidth = canvasWidth;
         }
 
         public double Width
@@ -49,7 +51,8 @@ namespace TakeAParachuteAndJump.Domain
 
         public void Update()
         {
-            PositionX = PositionX + _speedX;
+            double maxPositionX = _canvasWidth + Width / 2;
+            PositionX = (PositionX + _speedX) % maxPositionX;
         }
     }
 }

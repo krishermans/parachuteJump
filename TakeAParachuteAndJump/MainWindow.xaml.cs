@@ -18,22 +18,24 @@ namespace TakeAParachuteAndJump
         public MainWindow()
         {
             InitializeComponent();
-
-            _game = new Game(landscapeCanvas.ActualWidth, landscapeCanvas.ActualHeight);
-            _game.Setup();
-
-            _planeModel = new Plane(60, 200, 1);
-            _planeUI = new PlaneUI(_planeModel, landscapeCanvas);
-
-            _animationTimer = new DispatcherTimer();
-            _animationTimer.Interval = TimeSpan.FromMilliseconds(40); // 25 fps
-            _animationTimer.Tick += (s, e) => { _planeUI.Update(); };
-
         }
 
         private void startButton_Click(object sender, RoutedEventArgs e)
         {
             _animationTimer.Start();
+        }
+
+        private void Window_Loaded(object sender, EventArgs e)
+        {
+            _game = new Game(landscapeCanvas.ActualWidth, landscapeCanvas.ActualHeight);
+            _game.Setup();
+
+            _planeModel = new Plane(10, 30, 5, landscapeCanvas.ActualWidth);
+            _planeUI = new PlaneUI(_planeModel, landscapeCanvas);
+
+            _animationTimer = new DispatcherTimer();
+            _animationTimer.Interval = TimeSpan.FromMilliseconds(1000 / 25); // 25 fps
+            _animationTimer.Tick += (s, e) => { _planeUI.Update(); };
         }
     }
 }

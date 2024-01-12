@@ -1,7 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Threading;
 using TakeAParachuteAndJump.Domain;
-using TakeAParachuteAndJump.UI;
 
 namespace TakeAParachuteAndJump
 {
@@ -12,8 +11,7 @@ namespace TakeAParachuteAndJump
     {
         private DispatcherTimer _animationTimer;
         private Game _game;
-        private PlaneUI _planeUI;
-        private Plane _planeModel;
+        private Plane _plane;
 
         public MainWindow()
         {
@@ -30,12 +28,11 @@ namespace TakeAParachuteAndJump
             _game = new Game(landscapeCanvas.ActualWidth, landscapeCanvas.ActualHeight);
             _game.Setup();
 
-            _planeModel = new Plane(10, 30, 5, landscapeCanvas.ActualWidth);
-            _planeUI = new PlaneUI(_planeModel, landscapeCanvas);
-
+            _plane = new Plane(landscapeCanvas, 10, 30, 5); ;
+            
             _animationTimer = new DispatcherTimer();
             _animationTimer.Interval = TimeSpan.FromMilliseconds(1000 / 25); // 25 fps
-            _animationTimer.Tick += (s, e) => { _planeUI.Update(); };
+            _animationTimer.Tick += (s, e) => { _plane.Update(); };
         }
     }
 }

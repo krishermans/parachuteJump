@@ -5,15 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TakeAParachuteAndJump"
         mc:Ignorable="d"
-        Title="Take a parachute and jump" Height="800" Width="1000" Loaded="Window_Loaded"
+        Title="Take a parachute and jump" Height="670" Width="1000" Loaded="Window_Loaded"
         >
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="3*" />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <Canvas x:Name="landscapeCanvas" Grid.Column="0" Background="DeepSkyBlue"
-                ClipToBounds="True"/>
+
+        <Canvas x:Name="landscapeCanvas" Grid.Column="0" Opacity="100"
+                ClipToBounds="True">
+            <Image Source="Images/landscape.jpg" VerticalAlignment="Top"/>
+        </Canvas>
+
         <StackPanel Orientation="Vertical" Grid.Column="1" Margin="10">
             <Button x:Name="startButton" Content="Start" Width="50" Click="startButton_Click"/>
         </StackPanel>

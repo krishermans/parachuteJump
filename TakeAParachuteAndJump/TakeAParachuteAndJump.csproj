@@ -9,6 +9,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\landscape.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Images\landscape.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="Images\planeYellow1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

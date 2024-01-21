@@ -34,5 +34,10 @@ namespace TakeAParachuteAndJump
             _animationTimer.Interval = TimeSpan.FromMilliseconds(1000 / 25); // 25 fps
             _animationTimer.Tick += (s, e) => { _plane.Update(); };
         }
+
+        private void planeButton_Click(object sender, RoutedEventArgs e)
+        {
+            _plane.Visible = !_plane.Visible;
+        }
     }
 }

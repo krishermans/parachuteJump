@@ -20,6 +20,7 @@
 
         <StackPanel Orientation="Vertical" Grid.Column="1" Margin="10">
             <Button x:Name="startButton" Content="Start" Width="50" Click="startButton_Click"/>
+            <Button x:Name="planeButton" Content="Plane" Width="50" Click="planeButton_Click"/>
         </StackPanel>
     </Grid>
 </Window>

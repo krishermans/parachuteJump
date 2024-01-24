@@ -27,7 +27,7 @@
                 </Style>
             </StackPanel.Resources>
             <Button x:Name="startButton" Content="Start" Click="startButton_Click"/>
-            <Button x:Name="diveButton" Content="Plane" Click="diveButton_Click"/>
+            <Button x:Name="diveButton" Content="Dive" Click="diveButton_Click"/>
         </StackPanel>
     </Grid>
 </Window>

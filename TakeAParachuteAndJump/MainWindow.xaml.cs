@@ -43,7 +43,16 @@ namespace TakeAParachuteAndJump
 
         private void diveButton_Click(object sender, RoutedEventArgs e)
         {
-            _skydiver.IsVisible = true; // dive
+            if (!_skydiver.IsVisible)
+            {
+                _skydiver.IsVisible = true; // dive
+                diveButton.Content = "Parachute!";
+            }
+            else
+            {
+                _skydiver.IsParachuteOpen = true;
+                diveButton.IsEnabled = false;
+            }
         }
     }
 }

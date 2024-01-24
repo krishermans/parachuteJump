@@ -17,9 +17,9 @@ namespace TakeAParachuteAndJump.Domain
         public Skydiver(Canvas drawingCanvas, double positionX, double positionY, double speedX)
             : base(drawingCanvas, positionX, positionY, speedX, 0)
         {
-            _parachuteOpenImage.BeginInit();
-            _parachuteOpenImage.UriSource = new Uri(@"Images/skydiver-open.png", UriKind.Relative);
-            _parachuteOpenImage.EndInit();
+            //_parachuteOpenImage.BeginInit();
+            //_parachuteOpenImage.UriSource = new Uri(@"Images/skydiver-open.png", UriKind.Relative);
+            //_parachuteOpenImage.EndInit();
 
             _parachuteClosedImage.BeginInit();
             _parachuteClosedImage.UriSource = new Uri(@"Images/skydiver-closed.png", UriKind.Relative);
@@ -44,7 +44,13 @@ namespace TakeAParachuteAndJump.Domain
             {
                 if (value)
                 {
+                    _parachuteOpenImage.BeginInit();
+                    _parachuteOpenImage.UriSource = new Uri(@"Images/skydiver-open.png", UriKind.Relative);
+                    _parachuteOpenImage.EndInit();
+
                     _image.Source = _parachuteOpenImage;
+                    _image.Width = _parachuteOpenImage.Width;
+                    _image.Height = _parachuteOpenImage.Height;
                 }
                 else
                 {

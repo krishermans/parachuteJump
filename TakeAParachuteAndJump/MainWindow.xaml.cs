@@ -12,6 +12,7 @@ namespace TakeAParachuteAndJump
         private DispatcherTimer _animationTimer;
         private Game _game;
         private Plane _plane;
+        private Skydiver _skydiver;
 
         public MainWindow()
         {
@@ -28,16 +29,21 @@ namespace TakeAParachuteAndJump
             _game = new Game(landscapeCanvas.ActualWidth, landscapeCanvas.ActualHeight);
             _game.Setup();
 
-            _plane = new Plane(landscapeCanvas, 10, 30, 5); ;
+            _plane = new Plane(landscapeCanvas, 10, 30, 5);
+            _skydiver = new Skydiver(landscapeCanvas, 10, 30, 5);
             
             _animationTimer = new DispatcherTimer();
             _animationTimer.Interval = TimeSpan.FromMilliseconds(1000 / 25); // 25 fps
-            _animationTimer.Tick += (s, e) => { _plane.Update(); };
+            _animationTimer.Tick += (s, e) =>
+            { 
+                _plane.Update();
+                _skydiver.Update();
+            };
         }
 
-        private void planeButton_Click(object sender, RoutedEventArgs e)
+        private void diveButton_Click(object sender, RoutedEventArgs e)
         {
-            _plane.Visible = !_plane.Visible;
+            _skydiver.IsVisible = true; // dive
         }
     }
 }

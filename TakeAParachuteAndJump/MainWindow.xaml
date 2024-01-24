@@ -19,8 +19,15 @@
         </Canvas>
 
         <StackPanel Orientation="Vertical" Grid.Column="1" Margin="10">
-            <Button x:Name="startButton" Content="Start" Width="50" Click="startButton_Click"/>
-            <Button x:Name="planeButton" Content="Plane" Width="50" Click="planeButton_Click"/>
+            <StackPanel.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="Margin" Value="0,15,0,0" />
+                    <Setter Property="FontSize" Value="14" />
+                    <Setter Property="Width" Value="100" />
+                </Style>
+            </StackPanel.Resources>
+            <Button x:Name="startButton" Content="Start" Click="startButton_Click"/>
+            <Button x:Name="diveButton" Content="Plane" Click="diveButton_Click"/>
         </StackPanel>
     </Grid>
 </Window>

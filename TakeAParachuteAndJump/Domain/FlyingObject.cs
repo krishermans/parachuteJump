@@ -27,7 +27,7 @@ namespace TakeAParachuteAndJump.Domain
             _image = new Image();
         }
 
-        public bool Visible
+        public bool IsVisible
         {
             get => _drawingCanvas.Children.Contains(_image);
             set

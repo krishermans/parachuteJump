@@ -19,7 +19,7 @@ namespace TakeAParachuteAndJump.Domain
             _image.Width = _planeBitmap.Width;
             _image.Height = _planeBitmap.Height;
             _image.Margin = new Thickness(_positionX, _positionY, 0, 0);
-            Visible = true;
+            IsVisible = true;
         }
 
         public override void Update()

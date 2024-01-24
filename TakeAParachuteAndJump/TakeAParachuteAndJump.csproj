@@ -10,6 +10,8 @@
 
   <ItemGroup>
     <None Remove="Images\landscape.jpg" />
+    <None Remove="Images\planeYellow1.png" />
+    <None Remove="Images\skydiver-closed.png" />
     <None Remove="Images\skydiver-open.png" />
   </ItemGroup>
 
@@ -20,22 +22,22 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Images\skydiver-open.png">
+    <Content Include="Images\planeYellow1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
+    </Content>
+    <Content Include="Images\skydiver-closed.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\skydiver-open.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Images\planeYellow1.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Update="Images\planeYellow2.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Images\planeYellow3.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Images\skydiver-closed.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

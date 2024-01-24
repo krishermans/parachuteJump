@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 
@@ -17,9 +12,9 @@ namespace TakeAParachuteAndJump.Domain
         public Skydiver(Canvas drawingCanvas, double positionX, double positionY, double speedX)
             : base(drawingCanvas, positionX, positionY, speedX, 0)
         {
-            //_parachuteOpenImage.BeginInit();
-            //_parachuteOpenImage.UriSource = new Uri(@"Images/skydiver-open.png", UriKind.Relative);
-            //_parachuteOpenImage.EndInit();
+            _parachuteOpenImage.BeginInit();
+            _parachuteOpenImage.UriSource = new Uri(@"Images/skydiver-open.png", UriKind.Relative);
+            _parachuteOpenImage.EndInit();
 
             _parachuteClosedImage.BeginInit();
             _parachuteClosedImage.UriSource = new Uri(@"Images/skydiver-closed.png", UriKind.Relative);
@@ -44,10 +39,6 @@ namespace TakeAParachuteAndJump.Domain
             {
                 if (value)
                 {
-                    _parachuteOpenImage.BeginInit();
-                    _parachuteOpenImage.UriSource = new Uri(@"Images/skydiver-open.png", UriKind.Relative);
-                    _parachuteOpenImage.EndInit();
-
                     _image.Source = _parachuteOpenImage;
                     _image.Width = _parachuteOpenImage.Width;
                     _image.Height = _parachuteOpenImage.Height;
@@ -55,6 +46,8 @@ namespace TakeAParachuteAndJump.Domain
                 else
                 {
                     _image.Source = _parachuteClosedImage;
+                    _image.Width = _parachuteClosedImage.Width;
+                    _image.Height = _parachuteClosedImage.Height;
                 }
             }
         }
@@ -75,8 +68,19 @@ namespace TakeAParachuteAndJump.Domain
             {
                 double height = _image.Height;
                 double maxPositionY = _drawingCanvas.ActualHeight - height / 1 - 5;
-                _speedY = 5;
-                _positionY += _speedY;
+               
+                if (this.IsParachuteOpen)
+                {
+                    _speedY = 1;
+                    _positionY += _speedY;
+                }
+                else
+                {
+                    _speedY += Physics.G * Physics.DeltaT;
+                    _positionY += _speedY;
+                }
+                
+
                 if (_positionY > maxPositionY)
                 {
                     _positionY = maxPositionY; // stay on the ground

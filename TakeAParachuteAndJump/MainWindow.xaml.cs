@@ -10,7 +10,6 @@ namespace TakeAParachuteAndJump
     public partial class MainWindow : Window
     {
         private DispatcherTimer _animationTimer;
-        private Game _game;
         private Plane _plane;
         private Skydiver _skydiver;
 
@@ -26,9 +25,6 @@ namespace TakeAParachuteAndJump
 
         private void Window_Loaded(object sender, EventArgs e)
         {
-            _game = new Game(landscapeCanvas.ActualWidth, landscapeCanvas.ActualHeight);
-            _game.Setup();
-
             _plane = new Plane(landscapeCanvas, 10, 30, 5);
             _skydiver = new Skydiver(landscapeCanvas, 10, 30, 5);
             
